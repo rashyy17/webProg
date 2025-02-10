@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import Upload from "./upload_widget";
 function R() {
     const [formData, setFormData] = useState({
         independentHouseVilla: 0,
@@ -81,6 +81,7 @@ function R() {
                     )
                 ))}
             </div>
+            <Upload/>
             <button onClick={sbmt} style={{ marginTop: "10px" }}>SUBMIT FORM </button>
         </div>
     );
