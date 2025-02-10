@@ -4,8 +4,11 @@ import Realestate from "./realestate";
 import ToolsAdvice from "./toolsadvice";
 import Infocard from "./infocard";
 import SearchBar from "./SearchBar";
-
+import { useNavigate } from "react-router-dom";
 function App() {
+
+  let n = useNavigate();
+
 return (
       <div className="container">
       {/*Hero*/}
@@ -329,7 +332,9 @@ return (
         <p>List it on Aarvasa and get Genuine leads</p>
     </div>
     <div class="right-side">
-        <button class="post-propertyapp-btn">
+        <button class="post-propertyapp-btn" onClick={()=>{
+          n('/sell');
+        }}>
             Post Property
             <button class="free-btn">Free</button>
         </button>

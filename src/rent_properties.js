@@ -27,10 +27,11 @@ function R() {
         wifi: 0,
         laundryAvailable: 0,
         areaSize: "",
-        addressDetails: "",
+        addresstrivia: "",
         noOfRooms: "",
         totalAmount: "",
-        Email:""
+        Email:"",
+        Url : ""
     });
 
     const handleCheckboxChange = (e) => {
@@ -43,8 +44,18 @@ function R() {
         setFormData({ ...formData, [name]: value });
     };
 
-    let sbmt = ()=>{
-        console.log(formData);
+    let sbmt = async()=>{
+        let op = await fetch('http://localhost:8000/post_rental_properties',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            }
+        );
+
+
     }
 
     return (
@@ -52,7 +63,7 @@ function R() {
             <h2>Rent Your Property</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 {Object.keys(formData).map((key) => (
-                    key.includes("areaSize") || key.includes("addressDetails") || key.includes("noOfRooms") || key.includes("totalAmount") || key.includes("Email") ? (
+                    key.includes("areaSize") || key.includes("addresstrivia") || key.includes("noOfRooms") || key.includes("totalAmount") || key.includes("Email") || key.includes("Url")  ? (
                         <div key={key} style={{ display: "flex", justifyContent: "space-between", width: "300px" }}>
                             <label>{key.replace(/([A-Z])/g, " $1").trim()}:</label>
                             <input type="text" name={key} value={formData[key]} onChange={handleInputChange} />

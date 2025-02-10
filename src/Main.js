@@ -10,7 +10,8 @@ import PropertyListing from "./listings"; // Property Listings page
 import Login from "./login"; // Login page
 import ContactUs from "./contactus"; // Contact Us page
 import SignUp from "./signup"
-
+import S from "./sell";
+import R from "./rent_properties";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -24,6 +25,9 @@ const router = createBrowserRouter([
       { path: "login", element: <Login /> }, // Login route
       { path: "contactus", element: <ContactUs /> }, // Contact Us route
       { path: "signup" , element: <SignUp /> }, // Sign Up route
+      {path: "sell" , element: <S />},
+      {path: "rent" , element: <R />},
+      
     ],
   },
 ]);
