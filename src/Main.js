@@ -15,6 +15,9 @@ import R from "./rent_properties";
 import F from "./filter";
 import RPF from "./filter_rent_properties";
 import M_rent from "./filter_map_rent";
+import Sell_prop from "./sell_properties";
+import SPF from "./filter_sale_properties";
+import M_sale from "./fileter_map_sale";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +36,10 @@ const router = createBrowserRouter([
       {path: "filter" , element: <F />},
       {path: "rpf" , element: <RPF />},
       {path: "map_rent" , element: <M_rent />},
+      {path: "sell_p" , element: <Sell_prop />},
+      {path: "spf" , element: <SPF />},
+      {path: "map_sale" , element: <M_sale />},
+
       
     ],
   },

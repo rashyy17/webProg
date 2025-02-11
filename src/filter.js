@@ -71,7 +71,9 @@ function F(){
             <button onClick={()=>{
                 n('/rpf');
             }}>rent properties</button>
-            <button>buy properties</button>
+            <button onClick={()=>{
+                n('/spf');
+            }}>buy properties</button>
             <button>rent commercial plots</button>
             <button>buy commercial plots</button>
             <button>rent commercial workspace</button>
@@ -106,7 +108,7 @@ function F(){
 
             }
 
-            
+
 
             
 

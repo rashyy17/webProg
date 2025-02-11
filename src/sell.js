@@ -12,6 +12,10 @@ function S(){
 
             }}>RENT PROPERTIES</button>
 
+            <button onClick={()=>{
+                n('/sell_p')
+            }}>SELL PROPERTIES</button>
+
         </div>
     );
 }
