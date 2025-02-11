@@ -1,6 +1,10 @@
 import React, { useState } from "react";
-import Upload from "./upload_widget";
+import { useEffect } from "react";
+import { useRef } from "react";
+import "./loader.css";
+
 function R() {
+    let [load,set_load] = useState(0);
     const [formData, setFormData] = useState({
         independentHouseVilla: 0,
         independentBuilderFloor: 0,
@@ -35,7 +39,36 @@ function R() {
         state:"",
         city:"",
         pincode:""
+        
     });
+    let [images,set_image] = useState([]);
+
+    let a = useRef();
+    let b = useRef();
+    useEffect(()=>{
+
+        a.current = window.cloudinary;
+        b.current = a.current.createUploadWidget({
+
+            cloudName: "dqhddm7mi",
+            apiKey: "222323681783653",
+            uploadPreset: "aarvasa",
+            folder: "property_media",
+            sources: ["local", "camera"],
+            resourceType: "auto",
+
+        },function(error,result){
+            if (!error && result && result.event === "success") {
+                const file = result.info;
+                console.log(file.secure_url);
+                let rghj = images;
+                rghj.push(file.secure_url);
+
+                set_image([...rghj]);
+            }
+        });
+
+    },[]);
 
     const handleCheckboxChange = (e) => {
         const { name, checked } = e.target;
@@ -48,17 +81,37 @@ function R() {
     };
 
     let sbmt = async()=>{
+        set_load(1);
+        let abd = {...formData};
+        abd.images = images;
         let op = await fetch('http://localhost:8000/post_rental_properties',
             {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(abd),
             }
         );
 
+        let kfg = await op.json();
 
+        if(kfg.message == "successful"){
+            set_load(0);
+
+        }
+
+
+    }
+
+    if(load == 1){
+        return (
+            <div className="loader-container">
+                <div className="loader"></div>
+            </div>
+            
+            
+        );
     }
 
     return (
@@ -84,7 +137,9 @@ function R() {
                     )
                 ))}
             </div>
-            <Upload/>
+            <button onClick={()=>{
+            b.current.open();
+        }}>UPLOAD IMAGES AND VIDEOS </button>
             <button onClick={sbmt} style={{ marginTop: "10px" }}>SUBMIT FORM </button>
         </div>
     );
