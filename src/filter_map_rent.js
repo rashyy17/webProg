@@ -87,23 +87,23 @@ function M_rent(){
 
                 <input type="text" value={state} onChange={(e)=>{
                     set_state(e.target.value);
-                }} />
+                }} placeholder="state" />
 
                 <input type="text" value={city} onChange={(e)=>{
                     set_city(e.target.value);
-                }} />
+                }} placeholder="city" />
 
                  <input type="text" value={pincode} onChange={(e)=>{
                     set_pincode(e.target.value);
-                }} />
+                }} placeholder="pincode" />
 
                     <input type="text" value={min} onChange={(e)=>{
                         set_min(e.target.value);
-                    }} />
+                    }} placeholder="address details" />
 
                     <input type="text" value={max} onChange={(e)=>{
                         set_max(e.target.value);
-                    }} />
+                    }} placeholder="range" />
 
                 <button onClick={filter}>filter</button>
 
