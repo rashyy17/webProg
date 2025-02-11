@@ -5,39 +5,25 @@ function M_rent(){
 
     let [load,set_load] = useState(0);
 
-    let [state,set_state] = useState("");
+    /*let [state,set_state] = useState("");
     let [city,set_city] = useState("");
 
     let [pincode,set_pincode] = useState("");
 
-    let [min,set_min] = useState("");
+    let [min,set_min] = useState("");*/
 
     let [max,set_max] = useState("");
 
     let [filtered_data,set_filtered_data] = useState([]);
 
+    let [url,set_url] = useState("");
+
     
 
     let filter = async()=>{
         set_load(1);
-        const addressdetails = min.split(",");
-        console.log(addressdetails);
-        let v = [];
-
-        for (let a in addressdetails) {
-            let s = addressdetails[a].trim();
-            let rtyu = s.toLowerCase();
-            if (s == state || s == city || s == pincode || rtyu == 'india') {
-                continue;
-            } else {
-                v.push(s);
-            }
-        }
-        let i = "India";
-
-        const fullAddress = `${v}, ${city}, ${state}, ${pincode}`;
         const requestData = {
-            address: fullAddress,
+            address: url,
             range: parseFloat(max),
         };
 
@@ -85,21 +71,11 @@ function M_rent(){
     return (
         <div>
 
-                <input type="text" value={state} onChange={(e)=>{
-                    set_state(e.target.value);
-                }} placeholder="state" />
+                <input type="text" value={url} onChange={(e)=>{
+                    set_url(e.target.value);
+                }} placeholder="url" />
 
-                <input type="text" value={city} onChange={(e)=>{
-                    set_city(e.target.value);
-                }} placeholder="city" />
-
-                 <input type="text" value={pincode} onChange={(e)=>{
-                    set_pincode(e.target.value);
-                }} placeholder="pincode" />
-
-                    <input type="text" value={min} onChange={(e)=>{
-                        set_min(e.target.value);
-                    }} placeholder="address details" />
+                
 
                     <input type="text" value={max} onChange={(e)=>{
                         set_max(e.target.value);
