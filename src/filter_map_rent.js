@@ -1,0 +1,140 @@
+import React from "react";
+import { useState } from "react";
+import "./loader.css";
+function M_rent(){
+
+    let [load,set_load] = useState(0);
+
+    let [state,set_state] = useState("");
+    let [city,set_city] = useState("");
+
+    let [pincode,set_pincode] = useState("");
+
+    let [min,set_min] = useState("");
+
+    let [max,set_max] = useState("");
+
+    let [filtered_data,set_filtered_data] = useState([]);
+
+    
+
+    let filter = async()=>{
+        set_load(1);
+        const addressdetails = min.split(",");
+        console.log(addressdetails);
+        let v = [];
+
+        for (let a in addressdetails) {
+            let s = addressdetails[a].trim();
+            let rtyu = s.toLowerCase();
+            if (s == state || s == city || s == pincode || rtyu == 'india') {
+                continue;
+            } else {
+                v.push(s);
+            }
+        }
+        let i = "India";
+
+        const fullAddress = `${v}, ${city}, ${state}, ${pincode}`;
+        const requestData = {
+            address: fullAddress,
+            range: parseFloat(max),
+        };
+
+        let op = await fetch('http://localhost:8000/filter_map_rent_properties',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify(requestData),
+                
+            }
+        );
+
+        let ans = await op.json();
+        console.log(ans.nearbyprop);
+        set_filtered_data([...ans.nearbyprop]);
+        set_load(0);
+    }
+
+    let move_to_maps_p = (e)=>{
+
+        let rty = e.target.accessKey;
+
+        let opl = parseInt(rty,10);
+
+        let iipl = filtered_data[opl];
+
+        const googleMapsUrl = `https://www.google.com/maps?q=${iipl.lat},${iipl.long}`;
+        window.open(googleMapsUrl, "_blank");
+
+    }
+
+    if(load == 1){
+        return (
+            <div>
+                <div className="loader-container">
+                    <div className="loader"></div>
+                </div>
+            </div>
+        );
+    }
+
+
+    return (
+        <div>
+
+                <input type="text" value={state} onChange={(e)=>{
+                    set_state(e.target.value);
+                }} />
+
+                <input type="text" value={city} onChange={(e)=>{
+                    set_city(e.target.value);
+                }} />
+
+                 <input type="text" value={pincode} onChange={(e)=>{
+                    set_pincode(e.target.value);
+                }} />
+
+                    <input type="text" value={min} onChange={(e)=>{
+                        set_min(e.target.value);
+                    }} />
+
+                    <input type="text" value={max} onChange={(e)=>{
+                        set_max(e.target.value);
+                    }} />
+
+                <button onClick={filter}>filter</button>
+
+
+                {
+                filtered_data.map((key,index)=>{
+                    return (
+                        <div key={index}>
+
+                            <p>address is</p>
+                            <p>{key.addresstrivia}</p>
+                            <p>area size</p>
+                            <p>{key.areaSize}</p>
+
+                            <p>total amount</p>
+                            <p>{key.totalAmount}</p>
+
+                            <button accessKey={index} onClick={move_to_maps_p}>go to location</button>
+
+                            
+
+                        </div>
+                        
+                    );
+                })
+
+            }
+
+        </div>
+    );
+
+}
+
+export default M_rent;

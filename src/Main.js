@@ -12,6 +12,9 @@ import ContactUs from "./contactus"; // Contact Us page
 import SignUp from "./signup"
 import S from "./sell";
 import R from "./rent_properties";
+import F from "./filter";
+import RPF from "./filter_rent_properties";
+import M_rent from "./filter_map_rent";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +30,9 @@ const router = createBrowserRouter([
       { path: "signup" , element: <SignUp /> }, // Sign Up route
       {path: "sell" , element: <S />},
       {path: "rent" , element: <R />},
+      {path: "filter" , element: <F />},
+      {path: "rpf" , element: <RPF />},
+      {path: "map_rent" , element: <M_rent />},
       
     ],
   },
