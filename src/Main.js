@@ -18,6 +18,24 @@ import M_rent from "./filter_map_rent";
 import Sell_prop from "./sell_properties";
 import SPF from "./filter_sale_properties";
 import M_sale from "./fileter_map_sale";
+import Sell_commercial_plots from "./sell_commercial_plots";
+import Sell_commercial_plots_filter from "./filter_sale_commercial_plots";
+import M_sale_commercial_plots from "./filter_map_sale_commercial_plots";
+import Rent_commercial_plots from "./rent_commercial_plots";
+import Rent_commercial_plots_filter from "./filter_rent_commercial_plots";
+import M_rent_commercial_plots from "./filter_map_rent_commercial_plots";
+import Rent_residential_plots from "./rent_residential_plots";
+import Rent_residential_plots_filter from "./filter_rent_residential_plots";
+import M_rent_residential_plots from "./filter_map_rent_residential_plots";
+import Sale_residential_plots from "./sell_residential_plots";
+import Sale_residential_plots_filter from "./filter_sale_residential_plots";
+import M_sale_residential_plots from "./filter_map_sale_residential_plots";
+import Sell_commercial_workspace from "./sell_commercial_workspace";
+import Sale_commercial_workspace_filter from "./filter_sale_commercial_workspace";
+import M_sale_commercial_workspace from "./filter_map_sale_commercial_workspace";
+import Rent_commercial_workspace from "./rent_commercial_workspace";
+import Rent_commercial_workspace_filter from "./filter_rent_commercial_workspace";
+import M_rent_commercial_workspace from "./filter_map_rent_commercial_workspace";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +57,24 @@ const router = createBrowserRouter([
       {path: "sell_p" , element: <Sell_prop />},
       {path: "spf" , element: <SPF />},
       {path: "map_sale" , element: <M_sale />},
+      {path: "sell_commercial_plots" , element: <Sell_commercial_plots />},
+      {path: "sell_commercial_plots_filter" , element: <Sell_commercial_plots_filter />},
+      {path: "map_sale_commercial_plots" , element: <M_sale_commercial_plots />},
+      {path: "rent_commercial_plots" , element: <Rent_commercial_plots />},
+      {path: "rent_commercial_plots_filter" , element: <Rent_commercial_plots_filter />},
+      {path: "map_rent_commercial_plots" , element: <M_rent_commercial_plots />},
+      {path: "rent_residential_plots" , element: < Rent_residential_plots />},
+      {path: "rent_residential_plots_filter" , element: < Rent_residential_plots_filter  />},
+      {path: "map_rent_residential_plots" , element: < M_rent_residential_plots />},
+      {path: "sell_residential_plots" , element: < Sale_residential_plots />},
+      {path: "sell_residential_plots_filter" , element: < Sale_residential_plots_filter />},
+      {path: "map_sale_residential_plots" , element: <M_sale_residential_plots/>},
+      {path: "sell_commercial_workspace" , element: <Sell_commercial_workspace/>},
+      {path: "sell_commercial_workspace_filter" , element: <Sale_commercial_workspace_filter/>},
+      {path: "map_sale_commercial_workspace" , element: <M_sale_commercial_workspace/>},
+      {path: "rent_commercial_workspace" , element: <Rent_commercial_workspace/>},
+      {path: "rent_commercial_workspace_filter" , element: <Rent_commercial_workspace_filter/>},
+      {path: "map_rent_commercial_workspace" , element: <M_rent_commercial_workspace/>},
 
       
     ],

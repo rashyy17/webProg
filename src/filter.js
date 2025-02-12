@@ -74,12 +74,27 @@ function F(){
             <button onClick={()=>{
                 n('/spf');
             }}>buy properties</button>
-            <button>rent commercial plots</button>
-            <button>buy commercial plots</button>
-            <button>rent commercial workspace</button>
-            <button>buy commercial workspace</button>
-            <button>rent residential plots</button>
-            <button>buy commercial plots</button>
+            <button onClick={()=>{
+                n('/sell_commercial_plots_filter');
+            }}>buy commercial plots</button>
+            
+            
+            <button onClick={()=>{
+                n('/rent_commercial_plots_filter');
+            }}>rent commercial plots</button>
+            <button onClick={()=>{
+                n('/rent_residential_plots_filter');
+            }}>rent residential plots</button>
+            <button  onClick={()=>{
+                n('/sell_residential_plots_filter');
+            }}>buy residential plots</button>
+            <button onClick={()=>{
+                n('/sell_commercial_workspace_filter');
+            }}>buy commercial workspace</button>
+            <button onClick={()=>{
+                n('/rent_commercial_workspace_filter');
+            }}>rent commercial workspace</button>
+            
             <button>residential projects</button>
 
            
