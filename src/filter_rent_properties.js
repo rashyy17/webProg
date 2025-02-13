@@ -1,6 +1,7 @@
 import React from "react";
 
-
+import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
 import { useEffect } from "react";
 import { useState } from "react";
 import "./loader.css";
@@ -23,7 +24,55 @@ function RPF(){
     let [max,set_max] = useState("");
 
     let [filtered_data,set_filtered_data] = useState([]);
+    let [current_rating_state,set_current_rating_state] = useState(null);
+    //rating state values
+    const [rating, setRating] = useState(0); // Store rating value
 
+    const handleRatingChange = (event, newValue) => {
+        setRating(newValue); // Update rating when changed
+    };
+
+    let submit_ratings = async()=>{
+
+        let iip = initial[current_rating_state];
+        console.log(iip);
+
+        let op = await fetch('http://localhost:8000/rate_property',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify({a:iip,rt:rating,c:"rent_rating"}),
+                
+            }
+        );
+
+        let ans = await op.json();
+
+
+
+    }
+
+    let submit_ratings_filetred = async ()=>{
+        let iip = filtered_data[current_rating_state];
+        console.log(iip);
+
+        let op = await fetch('http://localhost:8000/rate_property',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify({a:iip,rt:rating,c:"rent_rating"}),
+                
+            }
+        );
+
+        let ans = await op.json();
+
+    }
+    
 
 
     
@@ -38,6 +87,7 @@ function RPF(){
                     headers: {
                         'Content-Type': 'application/json',
                     },
+                    
                     
                 }
             );
@@ -108,6 +158,29 @@ function RPF(){
 
     }
 
+    let ratebox= (e)=>{
+
+        let rty = e.target.accessKey;
+
+        let opl = parseInt(rty,10);
+
+        set_current_rating_state(opl);
+
+        set_load(4);
+
+    }
+
+    let ratebox_filtered = (e)=>{
+        let rty = e.target.accessKey;
+
+        let opl = parseInt(rty,10);
+
+        set_current_rating_state(opl);
+
+        set_load(5);
+
+    }
+
     let filter_map = ()=>{
         n("/map_rent");
     }
@@ -120,6 +193,33 @@ function RPF(){
                 </div>
             </div>
         );
+    }
+
+    if(load == 4){
+        return(
+            <div>
+                
+                    <Rating name="half-rating" defaultValue={rating} precision={0.5} size="large" onChange={handleRatingChange} />
+
+                    <button onClick={submit_ratings}>SUBMIT RATING</button>
+                    
+                
+            </div>
+        );
+    }
+
+    if(load == 5){
+        return(
+            <div>
+                
+                    <Rating name="half-rating" defaultValue={rating} precision={0.5} size="large" onChange={handleRatingChange} />
+
+                    <button onClick={submit_ratings_filetred}>SUBMIT RATING</button>
+                    
+                
+            </div>
+        );
+
     }
 
 
@@ -193,6 +293,8 @@ function RPF(){
                                 <p>{key.totalAmount}</p>
     
                                 <button accessKey={index} onClick={move_to_maps_p}>go to location</button>
+
+                                <button accessKey={index} onClick={ratebox_filtered}>Rate property</button>
     
                                 
     
@@ -279,6 +381,7 @@ function RPF(){
                             <p>{key.totalAmount}</p>
 
                             <button accessKey={index} onClick={move_to_maps}>go to location</button>
+                            <button accessKey={index} onClick={ratebox}>Rate property</button>
 
                             
 
