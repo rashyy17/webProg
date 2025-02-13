@@ -127,17 +127,34 @@ function Sale_commercial_workspace_filter(){
         return(
             <div>
 
-                <button onClick={()=>{
-                         n('/rpf');
-                    }}>rent properties</button>
-                <button>buy properties</button>
-                <button>rent commercial plots</button>
-                <button>buy commercial plots</button>
-                <button>rent commercial workspace</button>
-                <button>buy commercial workspace</button>
-                <button>rent residential plots</button>
-                <button>buy commercial plots</button>
-                <button>residential projects</button>
+<button onClick={()=>{
+                n('/rpf');
+            }}>rent properties</button>
+            <button onClick={()=>{
+                n('/spf');
+            }}>buy properties</button>
+            <button onClick={()=>{
+                n('/sell_commercial_plots_filter');
+            }}>buy commercial plots</button>
+            
+            
+            <button onClick={()=>{
+                n('/rent_commercial_plots_filter');
+            }}>rent commercial plots</button>
+            <button onClick={()=>{
+                n('/rent_residential_plots_filter');
+            }}>rent residential plots</button>
+            <button  onClick={()=>{
+                n('/sell_residential_plots_filter');
+            }}>buy residential plots</button>
+            <button onClick={()=>{
+                n('/sell_commercial_workspace_filter');
+            }}>buy commercial workspace</button>
+            <button onClick={()=>{
+                n('/rent_commercial_workspace_filter');
+            }}>rent commercial workspace</button>
+            
+            <button>residential projects</button>
 
                 <input type="text" value={state} onChange={(e)=>{
                     set_state(e.target.value);
@@ -194,13 +211,30 @@ function Sale_commercial_workspace_filter(){
             <button onClick={()=>{
                 n('/rpf');
             }}>rent properties</button>
-            <button>buy properties</button>
-            <button>rent commercial plots</button>
-            <button>buy commercial plots</button>
-            <button>rent commercial workspace</button>
-            <button>buy commercial workspace</button>
-            <button>rent residential plots</button>
-            <button>buy commercial plots</button>
+            <button onClick={()=>{
+                n('/spf');
+            }}>buy properties</button>
+            <button onClick={()=>{
+                n('/sell_commercial_plots_filter');
+            }}>buy commercial plots</button>
+            
+            
+            <button onClick={()=>{
+                n('/rent_commercial_plots_filter');
+            }}>rent commercial plots</button>
+            <button onClick={()=>{
+                n('/rent_residential_plots_filter');
+            }}>rent residential plots</button>
+            <button  onClick={()=>{
+                n('/sell_residential_plots_filter');
+            }}>buy residential plots</button>
+            <button onClick={()=>{
+                n('/sell_commercial_workspace_filter');
+            }}>buy commercial workspace</button>
+            <button onClick={()=>{
+                n('/rent_commercial_workspace_filter');
+            }}>rent commercial workspace</button>
+            
             <button>residential projects</button>
 
             <input type="text" value={state} onChange={(e)=>{
