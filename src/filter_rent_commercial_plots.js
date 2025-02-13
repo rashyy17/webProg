@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 function Rent_commercial_plots_filter(){
     let [load,set_load] = useState(1);
-    let [initial,set_initial] = useState({});
+    let [initial,set_initial] = useState([]);
 
     let n = useNavigate();
 

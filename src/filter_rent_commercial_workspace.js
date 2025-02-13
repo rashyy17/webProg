@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 function Rent_commercial_workspace_filter(){
     let [load,set_load] = useState(1);
-    let [initial,set_initial] = useState({});
+    let [initial,set_initial] = useState([]);
 
     let n = useNavigate();
 
@@ -32,7 +32,7 @@ function Rent_commercial_workspace_filter(){
 
         async function t(){
 
-            let op = await fetch('http://localhost:8000/all_commercial_workspace_rent_propertiess',
+            let op = await fetch('http://localhost:8000/all_commercial_workspace_rent_properties',
                 {
                     method: 'POST',
                     headers: {

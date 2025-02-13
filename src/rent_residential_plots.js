@@ -96,7 +96,7 @@ function Rent_residential_plots() {
             <h2>Rent Your Property</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 {Object.keys(formData).map((key) => (
-                    key.includes("areaSize") || key.includes("addresstrivia") || key.includes("noOfRooms") || key.includes("totalAmount") || key.includes("Email") || key.includes("Url") || key.includes("state") || key.includes("city") || key.includes("pincode") ? (
+                    key.includes("areaSize") || key.includes("addresstrivia") || key.includes("noOfRooms") || key.includes("totalAmount") || key.includes("Email") || key.includes("Url") || key.includes("state") || key.includes("city") || key.includes("pincode") || key.includes("price_per_sqft") ? (
                         <div key={key} style={{ display: "flex", justifyContent: "space-between", width: "300px" }}>
                             <label>{key.replace(/([A-Z])/g, " $1").trim()}:</label>
                             <input type="text" name={key} value={formData[key]} onChange={handleInputChange} />

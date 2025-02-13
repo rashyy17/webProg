@@ -27,7 +27,7 @@ function M_rent_commercial_workspace(){
             range: parseFloat(max),
         };
 
-        let op = await fetch('http://localhost:8000/filter_commercial_workspace_rent_properties',
+        let op = await fetch('http://localhost:8000/filter_map_rent_commercial_workspace',
             {
                 method: 'POST',
                 headers: {

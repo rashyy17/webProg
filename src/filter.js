@@ -6,7 +6,7 @@ import "./loader.css";
 import { useNavigate } from "react-router-dom";
 function F(){
     let [load,set_load] = useState(1);
-    let [initial,set_initial] = useState({});
+    let [initial,set_initial] = useState([]);
 
     let n = useNavigate();
 

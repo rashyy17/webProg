@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 function SPF(){
     let [load,set_load] = useState(1);
-    let [initial,set_initial] = useState({});
+    let [initial,set_initial] = useState([]);
 
     let n = useNavigate();
 
