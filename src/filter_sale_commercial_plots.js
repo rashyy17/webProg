@@ -178,28 +178,30 @@ function Sell_commercial_plots_filter(){
 
                 <button onClick={filter}>filter</button>
                 {
-                filtered_data.map((key,index)=>{
-                    return (
-                        <div key={index}>
-
-                            <p>address is</p>
-                            <p>{key.addresstrivia}</p>
-                            <p>area size</p>
-                            <p>{key.areaSize}</p>
-
-                            <p>total amount</p>
-                            <p>{key.totalAmount}</p>
-
-                            <button accessKey={index} onClick={move_to_maps_p}>go to location</button>
-
+                        filtered_data.length === 0 ? (
+                            <p>No data available</p>
+                        ) :(filtered_data.map((key,index)=>{
+                        return (
+                            <div key={index}>
+    
+                                <p>address is</p>
+                                <p>{key.addresstrivia}</p>
+                                <p>area size</p>
+                                <p>{key.areaSize}</p>
+    
+                                <p>total amount</p>
+                                <p>{key.totalAmount}</p>
+    
+                                <button accessKey={index} onClick={move_to_maps_p}>go to location</button>
+    
+                                
+    
+                            </div>
                             
-
-                        </div>
-                        
-                    );
-                })
-
-            }
+                        );
+                    })
+    
+                )}
 
             </div>
         );
