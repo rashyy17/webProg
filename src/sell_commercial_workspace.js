@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useRef } from "react";
 import "./loader.css";
-
+import { Country, State, City } from "country-state-city";
+import { useNavigate } from "react-router-dom";
 function Sell_commercial_workspace() {
     let [load,set_load] = useState(0);
+    const [states, setStates] = useState([]);
+    const [cities, setCities] = useState([]);
+    const [selectedState, setSelectedState] = useState("");
+    let n = useNavigate();
     const [formData, setFormData] = useState({
         Ready_to_move_offices : 0,
         Bare_shell_offices : 0,
@@ -62,7 +67,35 @@ function Sell_commercial_workspace() {
             }
         });
 
+        const allStates = State.getStatesOfCountry("IN");
+        setStates(allStates);
+
     },[]);
+
+    const handleStateChange = (e) => {
+        const stateCode = e.target.value;
+      
+        if (stateCode) {
+          const stateDetails = State.getStateByCodeAndCountry(stateCode, "IN"); // Get state details
+          setFormData({ ...formData, state: stateDetails.name });
+          
+          setSelectedState(stateCode);
+      
+          // Fetch cities for the selected state
+          const allCities = City.getCitiesOfState("IN", stateCode);
+          setCities(allCities);
+        } else {
+        setFormData({ ...formData, state: "" });
+          setSelectedState("");
+          setCities([]);
+        }
+      };
+
+      const handleCityChange = (e) => {
+        const cityName = e.target.value;
+        setFormData({ ...formData, city: cityName });
+        
+      };
 
     const handleCheckboxChange = (e) => {
         const { name, checked } = e.target;
@@ -91,10 +124,45 @@ function Sell_commercial_workspace() {
         let kfg = await op.json();
 
         if(kfg.message == "successful"){
-            set_load(0);
+            set_load(2);
 
         }
 
+
+    }
+    let back = ()=>{
+        n('/sell');
+
+    }
+
+    if(load == 2){
+
+        return (
+            <div className="loader-container">
+                <p>PROPERTY UPLOADED SUCCESSFULLY</p>
+                <p>PROPERTY DETAILS</p>
+                <ul>
+                {Object.entries(formData).map(([key, value]) => (
+            <li key={key}><strong>{key}:</strong> {value}</li>
+        ))}
+                </ul>
+
+                {
+                    /*[...images].map((key,index)=>{
+                        return(
+                            <div key={index}>
+
+                                <img src={key} alt="prop_image"/>
+                            </div>
+                        );
+                    })*/
+                }
+
+                <button onClick={back}>GO BACK</button>
+            </div>
+            
+            
+        );
 
     }
 
@@ -113,7 +181,37 @@ function Sell_commercial_workspace() {
             <h2>Rent Your Property</h2>
             <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
                 {Object.keys(formData).map((key) => (
-                    key.includes("areaSize") || key.includes("addresstrivia") || key.includes("noOfRooms") || key.includes("totalAmount") || key.includes("Email") || key.includes("Url") || key.includes("state") || key.includes("city") || key.includes("pincode") || key.includes("price_per_sqft") ? (
+                    key.includes("state") ? (
+                        <div>
+                    <label htmlFor="state">State: </label>
+                    <select id="state" onChange={handleStateChange}>
+                    <option value="">Select a State</option>
+                    {states.map((state) => (
+                    <option key={state.isoCode} value={state.isoCode}>
+                    {state.name}
+                    </option>
+                    ))}
+                    </select>
+                    </div>
+                    
+                    ): key.includes("city") ? (
+                        <div>
+                    <label htmlFor="city">City: </label>
+                    <select
+                    id="city"
+                    onChange={handleCityChange}
+                    disabled={!selectedState}
+                    >
+                    <option value="">Select a City</option>
+                    {cities.map((city) => (
+                    <option key={city.id} value={city.name}>
+                    {city.name}
+                    </option>
+                    ))}
+                    </select>
+                    </div>
+                    
+                    ):key.includes("areaSize") || key.includes("addresstrivia") || key.includes("noOfRooms") || key.includes("totalAmount") || key.includes("Email") || key.includes("Url") ||  key.includes("pincode") || key.includes("price_per_sqft") ? (
                         <div key={key} style={{ display: "flex", justifyContent: "space-between", width: "300px" }}>
                             <label>{key.replace(/([A-Z])/g, " $1").trim()}:</label>
                             <input type="text" name={key} value={formData[key]} onChange={handleInputChange} />
