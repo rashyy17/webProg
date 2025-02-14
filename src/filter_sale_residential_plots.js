@@ -1,6 +1,6 @@
 import React from "react";
 import Rating from '@mui/material/Rating';
-
+import { Country, State, City } from "country-state-city";
 import { useEffect } from "react";
 import { useState } from "react";
 import "./loader.css";
@@ -10,6 +10,9 @@ import { useNavigate } from "react-router-dom";
 function Sale_residential_plots_filter(){
     let [load,set_load] = useState(1);
     let [initial,set_initial] = useState([]);
+    const [states, setStates] = useState([]);
+    const [cities, setCities] = useState([]);
+    const [selectedState, setSelectedState] = useState("");
 
     let n = useNavigate();
 
@@ -51,6 +54,9 @@ function Sale_residential_plots_filter(){
 
             console.log(ans);
 
+            const allStates = State.getStatesOfCountry("IN");
+            setStates(allStates);
+
             set_initial(ans.properties);
             set_load(0);
 
@@ -60,6 +66,29 @@ function Sale_residential_plots_filter(){
         t();
         
     },[]);
+
+    const handleStateChange = (e) => {
+        const stateCode = e.target.value;
+      
+        if (stateCode) {
+          const stateDetails = State.getStateByCodeAndCountry(stateCode, "IN"); // Get state details
+          set_state(stateDetails.name); // Store full state name
+          setSelectedState(stateCode);
+      
+          // Fetch cities for the selected state
+          const allCities = City.getCitiesOfState("IN", stateCode);
+          setCities(allCities);
+        } else {
+          set_state("");
+          setSelectedState("");
+          setCities([]);
+        }
+      };
+
+      const handleCityChange = (e) => {
+        const cityName = e.target.value;
+        set_city(cityName);
+      };
 
     const handleRatingChange = (event, newValue) => {
         setRating(newValue); // Update rating when changed
@@ -266,13 +295,33 @@ function Sale_residential_plots_filter(){
             
             <button>residential projects</button>
 
-                <input type="text" value={state} onChange={(e)=>{
-                    set_state(e.target.value);
-                }} placeholder="state" />
+            <div>
+            <label htmlFor="state">State: </label>
+            <select id="state" onChange={handleStateChange}>
+              <option value="">Select a State</option>
+              {states.map((state) => (
+                <option key={state.isoCode} value={state.isoCode}>
+                  {state.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-                <input type="text" value={city} onChange={(e)=>{
-                    set_city(e.target.value);
-                }} placeholder="city" />
+          <div>
+            <label htmlFor="city">City: </label>
+            <select
+              id="city"
+              onChange={handleCityChange}
+              disabled={!selectedState}
+            >
+              <option value="">Select a City</option>
+              {cities.map((city) => (
+                <option key={city.id} value={city.name}>
+                  {city.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
                  <input type="text" value={pincode} onChange={(e)=>{
                     set_pincode(e.target.value);
@@ -349,13 +398,33 @@ function Sale_residential_plots_filter(){
             }}>rent commercial workspace</button>
             
             <button>residential projects</button>
-            <input type="text" value={state} onChange={(e)=>{
-                set_state(e.target.value);
-            }} placeholder="state" />
+            <div>
+            <label htmlFor="state">State: </label>
+            <select id="state" onChange={handleStateChange}>
+              <option value="">Select a State</option>
+              {states.map((state) => (
+                <option key={state.isoCode} value={state.isoCode}>
+                  {state.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-            <input type="text" value={city} onChange={(e)=>{
-                set_city(e.target.value);
-            }} placeholder="city" />
+          <div>
+            <label htmlFor="city">City: </label>
+            <select
+              id="city"
+              onChange={handleCityChange}
+              disabled={!selectedState}
+            >
+              <option value="">Select a City</option>
+              {cities.map((city) => (
+                <option key={city.id} value={city.name}>
+                  {city.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
             <input type="text" value={pincode} onChange={(e)=>{
                 set_pincode(e.target.value);
