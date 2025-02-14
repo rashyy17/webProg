@@ -380,7 +380,9 @@ function Rent_commercial_plots_filter(){
 
 
             {
-                initial.map((key,index)=>{
+                initial.length === 0 ? (
+                    <p>No data available</p>
+                ):(initial.map((key,index)=>{
                     return (
                         <div key={index}>
 
@@ -400,7 +402,7 @@ function Rent_commercial_plots_filter(){
                         </div>
                         
                     );
-                })
+                }))
 
             }
 

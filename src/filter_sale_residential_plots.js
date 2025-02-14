@@ -376,7 +376,9 @@ function Sale_residential_plots_filter(){
 
 
             {
-                initial.map((key,index)=>{
+                initial.length === 0 ? (
+                    <p>No data available</p>
+                ):(initial.map((key,index)=>{
                     return (
                         <div key={index}>
 
@@ -396,7 +398,7 @@ function Sale_residential_plots_filter(){
                         </div>
                         
                     );
-                })
+                }))
 
             }
 
