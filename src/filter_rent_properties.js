@@ -28,55 +28,6 @@ function RPF(){
     //rating state values
     const [rating, setRating] = useState(0); // Store rating value
 
-    const handleRatingChange = (event, newValue) => {
-        setRating(newValue); // Update rating when changed
-    };
-
-    let submit_ratings = async()=>{
-
-        let iip = initial[current_rating_state];
-        console.log(iip);
-
-        let op = await fetch('http://localhost:8000/rate_property',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body : JSON.stringify({a:iip,rt:rating,c:"rent_rating"}),
-                
-            }
-        );
-
-        let ans = await op.json();
-
-
-
-    }
-
-    let submit_ratings_filetred = async ()=>{
-        let iip = filtered_data[current_rating_state];
-        console.log(iip);
-
-        let op = await fetch('http://localhost:8000/rate_property',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body : JSON.stringify({a:iip,rt:rating,c:"rent_rating"}),
-                
-            }
-        );
-
-        let ans = await op.json();
-
-    }
-    
-
-
-    
-
     useEffect(()=>{
 
         async function t(){
@@ -105,6 +56,66 @@ function RPF(){
         t();
         
     },[]);
+
+    const handleRatingChange = (event, newValue) => {
+        setRating(newValue); // Update rating when changed
+    };
+
+    let submit_ratings = async()=>{
+        set_load(1);
+        let iip = initial[current_rating_state];
+        console.log(iip);
+
+        let op = await fetch('http://localhost:8000/rate_property',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify({a:iip,rt:rating,c:"rent_rating"}),
+                
+            }
+        );
+
+        let ans = await op.json();
+        if(ans.message  == "successful"){
+            set_load(0);
+        }
+
+
+
+
+    }
+
+    let submit_ratings_filetred = async ()=>{
+        set_load(1);
+        let iip = filtered_data[current_rating_state];
+        console.log(iip);
+
+        let op = await fetch('http://localhost:8000/rate_property',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify({a:iip,rt:rating,c:"rent_rating"}),
+                
+            }
+        );
+
+        let ans = await op.json();
+
+        if(ans.message  == "successful"){
+            set_load(2);
+        }
+
+    }
+    
+
+
+    
+
+    
 
     
 
@@ -215,6 +226,7 @@ function RPF(){
                     <Rating name="half-rating" defaultValue={rating} precision={0.5} size="large" onChange={handleRatingChange} />
 
                     <button onClick={submit_ratings_filetred}>SUBMIT RATING</button>
+                    
                     
                 
             </div>

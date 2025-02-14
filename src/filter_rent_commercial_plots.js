@@ -1,5 +1,5 @@
 import React from "react";
-
+import Rating from '@mui/material/Rating';
 
 import { useEffect } from "react";
 import { useState } from "react";
@@ -24,9 +24,9 @@ function Rent_commercial_plots_filter(){
 
     let [filtered_data,set_filtered_data] = useState([]);
 
-
-
-    
+    let [current_rating_state,set_current_rating_state] = useState(null);
+    //rating state values
+    const [rating, setRating] = useState(0); // Store rating value
 
     useEffect(()=>{
 
@@ -55,6 +55,68 @@ function Rent_commercial_plots_filter(){
         t();
         
     },[]);
+
+    const handleRatingChange = (event, newValue) => {
+        setRating(newValue); // Update rating when changed
+    };
+
+    let submit_ratings = async()=>{
+        set_load(1);
+        let iip = initial[current_rating_state];
+        console.log(iip);
+
+        let op = await fetch('http://localhost:8000/rate_property',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify({a:iip,rt:rating,c:"rent_commercial_plots_rating"}),
+                
+            }
+        );
+
+        let ans = await op.json();
+        if(ans.message  == "successful"){
+            set_load(0);
+        }
+
+
+
+
+    }
+
+    let submit_ratings_filetred = async ()=>{
+        set_load(1);
+        let iip = filtered_data[current_rating_state];
+        console.log(iip);
+
+        let op = await fetch('http://localhost:8000/rate_property',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body : JSON.stringify({a:iip,rt:rating,c:"rent_commercial_plots_rating"}),
+                
+            }
+        );
+
+        let ans = await op.json();
+
+        if(ans.message  == "successful"){
+            set_load(2);
+        }
+
+    }
+    
+
+
+
+
+    
+
+    
 
     
 
@@ -108,6 +170,29 @@ function Rent_commercial_plots_filter(){
 
     }
 
+    let ratebox= (e)=>{
+
+        let rty = e.target.accessKey;
+
+        let opl = parseInt(rty,10);
+
+        set_current_rating_state(opl);
+
+        set_load(4);
+
+    }
+
+    let ratebox_filtered = (e)=>{
+        let rty = e.target.accessKey;
+
+        let opl = parseInt(rty,10);
+
+        set_current_rating_state(opl);
+
+        set_load(5);
+
+    }
+
     let filter_map = ()=>{
         n("/map_rent_commercial_plots");
     }
@@ -120,6 +205,34 @@ function Rent_commercial_plots_filter(){
                 </div>
             </div>
         );
+    }
+
+    if(load == 4){
+        return(
+            <div>
+                
+                    <Rating name="half-rating" defaultValue={rating} precision={0.5} size="large" onChange={handleRatingChange} />
+
+                    <button onClick={submit_ratings}>SUBMIT RATING</button>
+                    
+                
+            </div>
+        );
+    }
+
+    if(load == 5){
+        return(
+            <div>
+                
+                    <Rating name="half-rating" defaultValue={rating} precision={0.5} size="large" onChange={handleRatingChange} />
+
+                    <button onClick={submit_ratings_filetred}>SUBMIT RATING</button>
+                    
+                    
+                
+            </div>
+        );
+
     }
 
 
@@ -193,6 +306,7 @@ function Rent_commercial_plots_filter(){
                                 <p>{key.totalAmount}</p>
     
                                 <button accessKey={index} onClick={move_to_maps_p}>go to location</button>
+                                <button accessKey={index} onClick={ratebox_filtered}>Rate property</button>
     
                                 
     
@@ -279,6 +393,7 @@ function Rent_commercial_plots_filter(){
                             <p>{key.totalAmount}</p>
 
                             <button accessKey={index} onClick={move_to_maps}>go to location</button>
+                            <button accessKey={index} onClick={ratebox}>Rate property</button>
 
                             
 
