@@ -4,9 +4,19 @@ import { useEffect } from "react";
 import { useState } from "react";
 import "./loader.css";
 import { useNavigate } from "react-router-dom";
+
 function F(){
     let [load,set_load] = useState(1);
     let [initial,set_initial] = useState([]);
+    const [showPopup, setShowPopup] = useState(false);
+
+    let open_pop_up = ()=>{
+        setShowPopup(true);
+    }
+
+    let close_pop_up = ()=>{
+        setShowPopup(false);
+    }
 
     let n = useNavigate();
 
@@ -115,6 +125,24 @@ function F(){
                             <p>{key.totalAmount}</p>
 
                             <button accessKey={index} onClick={move_to_maps}>go to location</button>
+
+                            <button onClick={open_pop_up}>Contact Builder </button>
+
+                            {showPopup && (
+                <div style={{
+                    position: "fixed", 
+                    bottom: "20px", 
+                    right: "20px", 
+                    background: "black", 
+                    color: "white", 
+                    padding: "10px", 
+                    borderRadius: "5px"
+                }}>
+                    PLEASE SUBSCRIBE TO PRMIUM TO AVAIL THIS FEATURE
+
+                    <button onClick={close_pop_up}>CLOSE</button>
+                </div>
+            )}
 
                             
 

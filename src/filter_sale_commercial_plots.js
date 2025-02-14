@@ -17,6 +17,16 @@ function Sell_commercial_plots_filter(){
 
     let n = useNavigate();
 
+    const [showPopup, setShowPopup] = useState(false);
+
+    let open_pop_up = ()=>{
+        setShowPopup(true);
+    }
+
+    let close_pop_up = ()=>{
+        setShowPopup(false);
+    }
+
     let [state,set_state] = useState("");
     let [city,set_city] = useState("");
 
@@ -353,6 +363,23 @@ function Sell_commercial_plots_filter(){
     
                                 <button accessKey={index} onClick={move_to_maps_p}>go to location</button>
                                 <button accessKey={index} onClick={ratebox_filtered}>Rate property</button>
+                                <button onClick={open_pop_up}>Contact Builder </button>
+
+                            {showPopup && (
+                <div style={{
+                    position: "fixed", 
+                    bottom: "20px", 
+                    right: "20px", 
+                    background: "black", 
+                    color: "white", 
+                    padding: "10px", 
+                    borderRadius: "5px"
+                }}>
+                    PLEASE SUBSCRIBE TO PRMIUM TO AVAIL THIS FEATURE
+
+                    <button onClick={close_pop_up}>CLOSE</button>
+                </div>
+            )}
     
                                 
     
@@ -461,6 +488,23 @@ function Sell_commercial_plots_filter(){
 
                             <button accessKey={index} onClick={move_to_maps}>go to location</button>
                             <button accessKey={index} onClick={ratebox}>Rate property</button>
+                            <button onClick={open_pop_up}>Contact Builder </button>
+
+                            {showPopup && (
+                <div style={{
+                    position: "fixed", 
+                    bottom: "20px", 
+                    right: "20px", 
+                    background: "black", 
+                    color: "white", 
+                    padding: "10px", 
+                    borderRadius: "5px"
+                }}>
+                    PLEASE SUBSCRIBE TO PRMIUM TO AVAIL THIS FEATURE
+
+                    <button onClick={close_pop_up}>CLOSE</button>
+                </div>
+            )}
 
                             
 
