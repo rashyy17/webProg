@@ -105,7 +105,9 @@ function F(){
                 n('/rent_commercial_workspace_filter');
             }}>rent commercial workspace</button>
             
-            <button>residential projects</button>
+            <button onClick={()=>{
+                n('/residential_projects_filter');
+            }}>residential projects</button>
 
            
 

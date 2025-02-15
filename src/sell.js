@@ -40,6 +40,10 @@ function S(){
                 n('/rent_commercial_workspace');
             }}>RENT COMMERCIAL WORKSPACE</button>
 
+            <button onClick={()=>{
+                n('/residential_projects');
+            }}>Residential Projects</button>
+
 
 
         </div>

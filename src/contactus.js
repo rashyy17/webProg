@@ -18,6 +18,7 @@ const ContactUs = () => {
           headers: {
               'Content-Type': 'application/json',
           },
+          body : JSON.stringify({email:email,date:date,name:name}),
           
       }
   );

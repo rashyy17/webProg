@@ -36,6 +36,9 @@ import M_sale_commercial_workspace from "./filter_map_sale_commercial_workspace"
 import Rent_commercial_workspace from "./rent_commercial_workspace";
 import Rent_commercial_workspace_filter from "./filter_rent_commercial_workspace";
 import M_rent_commercial_workspace from "./filter_map_rent_commercial_workspace";
+import Residential_projects from "./residential_project";
+import Residential_projects_filter from "./filter_residential_projects";
+import M_residential_projects_filter from "./filter_map_residential_projects";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -75,6 +78,9 @@ const router = createBrowserRouter([
       {path: "rent_commercial_workspace" , element: <Rent_commercial_workspace/>},
       {path: "rent_commercial_workspace_filter" , element: <Rent_commercial_workspace_filter/>},
       {path: "map_rent_commercial_workspace" , element: <M_rent_commercial_workspace/>},
+      {path: "residential_projects" , element: <Residential_projects/>},
+      {path: "residential_projects_filter" , element: <Residential_projects_filter/>},
+      {path: "map_residential_projects" , element: <M_residential_projects_filter/>},
 
       
     ],
