@@ -307,7 +307,9 @@ function Residential_projects_filter(){
                 n('/rent_commercial_workspace_filter');
             }}>rent commercial workspace</button>
             
-            <button>residential projects</button>
+            <button onClick={()=>{
+                n('/residential_projects_filter');
+            }}>residential projects</button>
 
             <div>
             <label htmlFor="state">State: </label>
@@ -429,7 +431,9 @@ function Residential_projects_filter(){
                 n('/rent_commercial_workspace_filter');
             }}>rent commercial workspace</button>
             
-            <button>residential projects</button>
+            <button onClick={()=>{
+                n('/residential_projects_filter');
+            }}>residential projects</button>
 
             <div>
             <label htmlFor="state">State: </label>
