@@ -1,46 +1,81 @@
 import './agents.css';
-const agentsData = [
-  {
-    id: 1,
-    name: 'Sahyog Properties',
-    address: '2nd Floor, City Centre Plaza, Sector 5, Market Area, New Delhi 110052',
-    dealsIn: 'Residential, Commercial, Rentals',
-    experience: '10+ years',
-    phone: '9876543210',
-  },
-  // Duplicate for other entries
-  { id: 2, name: 'Sahyog Properties', address: '2nd Floor, City Centre Plaza, Sector 5, Market Area, New Delhi 110052', dealsIn: 'Residential, Commercial, Rentals', experience: '10+ years', phone: '9876543210' },
-  { id: 3, name: 'Sahyog Properties', address: '2nd Floor, City Centre Plaza, Sector 5, Market Area, New Delhi 110052', dealsIn: 'Residential, Commercial, Rentals', experience: '10+ years', phone: '9876543210' },
-  { id: 4, name: 'Sahyog Properties', address: '2nd Floor, City Centre Plaza, Sector 5, Market Area, New Delhi 110052', dealsIn: 'Residential, Commercial, Rentals', experience: '10+ years', phone: '9876543210' },
-];
+import "./loader.css";
+import { useState } from 'react';
+import { useEffect } from 'react';
 const localities = [
   { name: 'Dwarka', priceRange: '₹13k - 72k/mo.', searches: '7%', link: '#' },
   { name: 'Saket', priceRange: '₹14k - 91k/mo.', searches: '4%', link: '#' },
   { name: 'Vasant Kunj', priceRange: '₹23k - 1.1L/mo.', searches: '3%', link: '#' },
 ];
 const Agents = () => {
+
+  let [load,set_load] = useState(1);
+
+  let [agents,set_agents] = useState([]);
+  useEffect(()=>{
+    async function t(){
+
+      let op = await fetch('http://localhost:8000/all_agents',
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            
+        }
+    );
+
+    let rgd = await op.json();
+
+    set_agents([...rgd.agents]);
+    set_load(0);
+
+
+
+
+
+
+
+    }
+    t();
+
+
+  },[]);
+
+  if(load == 1){
+
+    return (
+      <div>
+          <div className="loader-container">
+              <div className="loader"></div>
+          </div>
+      </div>
+  );
+
+  }
   return (
     <div className="containera">
 
     <div className="agents-page">
     <div classname = "agents-heading"><h2>Agents in New Delhi who can help you</h2></div>
     <div className="agents-list">
-      {agentsData.map((agent) => (
-        <div className="agent-card" key={agent.id}>
+      {[...agents].map((agent,index) => (
+        <div className="agent-card" key={index}>
           <div className="agent-header">
             <img src="image 102.png" alt="Sahyog Logo" className="agent-logo" />
             <h3>{agent.name}</h3>
           </div>
           <div className="agent-details">
-            <p><strong>Address:</strong> {agent.address}</p>
-            <p><strong>Deals In:</strong> {agent.dealsIn}</p>
+            <p><strong>Deals In:</strong> {agent.deals_in}</p>
             <p><strong>Experience:</strong> {agent.experience}</p>
-            <p><strong>Phone:</strong> {agent.phone}</p>
+            <p><strong>Phone:</strong> {agent.contact_no}</p>
+            <p><strong>Aarvasa email id:</strong> {agent.aarvasa_id}</p>
+            <p><strong>Personal email id:</strong> {agent.email_id}</p>
             <p><img src='image 105.png' alt="Sahyog Logo" className="certificate"  /></p>
           </div>
           <div className="agent-actions">
             <button className="contact-button">Contact Now</button>
-            <button className="details-button">More Details</button>
+            
           </div>
         </div>
       ))}
@@ -48,22 +83,23 @@ const Agents = () => {
   </div>
   <div className="agents-page2">
     <div className="agents-list">
-      {agentsData.map((agent) => (
-        <div className="agent-card" key={agent.id}>
+    {[...agents].map((agent,index) => (
+        <div className="agent-card" key={index}>
           <div className="agent-header">
             <img src="image 102.png" alt="Sahyog Logo" className="agent-logo" />
             <h3>{agent.name}</h3>
           </div>
           <div className="agent-details">
-            <p><strong>Address:</strong> {agent.address}</p>
-            <p><strong>Deals In:</strong> {agent.dealsIn}</p>
+            <p><strong>Deals In:</strong> {agent.deals_in}</p>
             <p><strong>Experience:</strong> {agent.experience}</p>
-            <p><strong>Phone:</strong> {agent.phone}</p>
+            <p><strong>Phone:</strong> {agent.contact_no}</p>
+            <p><strong>Aarvasa email id:</strong> {agent.aarvasa_id}</p>
+            <p><strong>Personal email id:</strong> {agent.email_id}</p>
             <p><img src='image 105.png' alt="Sahyog Logo" className="certificate"  /></p>
           </div>
           <div className="agent-actions">
             <button className="contact-button">Contact Now</button>
-            <button className="details-button">More Details</button>
+            
           </div>
         </div>
       ))}
@@ -125,22 +161,23 @@ const Agents = () => {
     </div>
   <div className="agents-page3">
     <div className="agents-list">
-      {agentsData.map((agent) => (
-        <div className="agent-card" key={agent.id}>
+    {[...agents].map((agent,index) => (
+        <div className="agent-card" key={index}>
           <div className="agent-header">
             <img src="image 102.png" alt="Sahyog Logo" className="agent-logo" />
             <h3>{agent.name}</h3>
           </div>
           <div className="agent-details">
-            <p><strong>Address:</strong> {agent.address}</p>
-            <p><strong>Deals In:</strong> {agent.dealsIn}</p>
+            <p><strong>Deals In:</strong> {agent.deals_in}</p>
             <p><strong>Experience:</strong> {agent.experience}</p>
-            <p><strong>Phone:</strong> {agent.phone}</p>
+            <p><strong>Phone:</strong> {agent.contact_no}</p>
+            <p><strong>Aarvasa email id:</strong> {agent.aarvasa_id}</p>
+            <p><strong>Personal email id:</strong> {agent.email_id}</p>
             <p><img src='image 105.png' alt="Sahyog Logo" className="certificate"  /></p>
           </div>
           <div className="agent-actions">
             <button className="contact-button">Contact Now</button>
-            <button className="details-button">More Details</button>
+            
           </div>
         </div>
       ))}
