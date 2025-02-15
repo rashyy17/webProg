@@ -141,6 +141,7 @@ function F(){
                     PLEASE SUBSCRIBE TO PRMIUM TO AVAIL THIS FEATURE
 
                     <button onClick={close_pop_up}>CLOSE</button>
+                    
                 </div>
             )}
 

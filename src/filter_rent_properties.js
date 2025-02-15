@@ -118,6 +118,7 @@ function RPF(){
         let ans = await op.json();
         if(ans.message  == "successful"){
             set_load(0);
+            setRating(0);
         }
 
 
@@ -145,6 +146,7 @@ function RPF(){
 
         if(ans.message  == "successful"){
             set_load(2);
+            setRating(0);
         }
 
     }

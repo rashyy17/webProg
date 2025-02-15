@@ -124,6 +124,7 @@ function SPF(){
         let ans = await op.json();
         if(ans.message  == "successful"){
             set_load(0);
+            setRating(0);
         }
 
 
@@ -151,6 +152,7 @@ function SPF(){
 
         if(ans.message  == "successful"){
             set_load(2);
+            setRating(0);
         }
 
     }
