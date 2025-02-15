@@ -105,7 +105,6 @@ function SPF(){
         setRating(newValue); // Update rating when changed
     };
 
-    
     let submit_ratings = async()=>{
         set_load(1);
         let iip = initial[current_rating_state];
@@ -234,7 +233,7 @@ function SPF(){
     }
 
     let filter_map = ()=>{
-        n("/map_rent_residential_plots");
+        n("/map_sale");
     }
 
     if(load == 1){
@@ -392,6 +391,7 @@ function SPF(){
                     })
     
                 )}
+                <button onClick={filter_map}>CLICK</button>
 
             </div>
         );
@@ -427,7 +427,7 @@ function SPF(){
                 n('/rent_commercial_workspace_filter');
             }}>rent commercial workspace</button>
             
-            <button>residential projects</button>
+            
             <div>
             <label htmlFor="state">State: </label>
             <select id="state" onChange={handleStateChange}>

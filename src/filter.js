@@ -23,14 +23,15 @@ function F(){
         setShowPopup(false);
     }
 
-    let ratebox_filtered = (e)=>{
+    let ratebox= (e)=>{
+
         let rty = e.target.accessKey;
 
         let opl = parseInt(rty,10);
 
         set_current_rating_state(opl);
 
-        set_load(5);
+        set_load(4);
 
     }
 
@@ -40,9 +41,9 @@ function F(){
         setRating(newValue); // Update rating when changed
     };
 
-    let submit_ratings_filetred = async ()=>{
+    let submit_ratings = async()=>{
         set_load(1);
-        let iip = filtered_data[current_rating_state];
+        let iip = initial[current_rating_state];
         console.log(iip);
 
         let op = await fetch('http://localhost:8000/rate_property',
@@ -57,11 +58,13 @@ function F(){
         );
 
         let ans = await op.json();
-
         if(ans.message  == "successful"){
-            set_load(2);
+            set_load(0);
             setRating(0);
         }
+
+
+
 
     }
 
@@ -107,21 +110,18 @@ function F(){
         );
     }
 
-    if(load == 5){
+    if(load == 4){
         return(
             <div>
                 
                     <Rating name="half-rating" defaultValue={rating} precision={0.5} size="large" onChange={handleRatingChange} />
 
-                    <button onClick={submit_ratings_filetred}>SUBMIT RATING</button>
-                    
+                    <button onClick={submit_ratings}>SUBMIT RATING</button>
                     
                 
             </div>
         );
-
     }
-
 
     let move_to_maps = (e)=>{
 
@@ -191,7 +191,7 @@ function F(){
                             <p>{key.totalAmount}</p>
 
                             <button accessKey={index} onClick={move_to_maps}>go to location</button>
-                            <button accessKey={index} onClick={ratebox_filtered}>Rate property</button>
+                            <button accessKey={index} onClick={ratebox}>Rate property</button>
                             <button onClick={open_pop_up}>Contact Builder </button>
 
                             {showPopup && (
