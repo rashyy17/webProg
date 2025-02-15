@@ -21,6 +21,7 @@ function RPF(){
     let open_pop_up = ()=>{
         setShowPopup(true);
     }
+    
 
     let close_pop_up = ()=>{
         setShowPopup(false);

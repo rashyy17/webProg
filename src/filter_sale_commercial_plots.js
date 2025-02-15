@@ -119,6 +119,7 @@ function Sell_commercial_plots_filter(){
                 
             }
         );
+        
 
         let ans = await op.json();
         if(ans.message  == "successful"){

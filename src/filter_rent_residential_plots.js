@@ -184,6 +184,7 @@ function Rent_residential_plots_filter(){
         window.open(googleMapsUrl, "_blank");
 
     }
+    
 
     let filter = async() =>{
 

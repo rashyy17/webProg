@@ -105,6 +105,7 @@ function SPF(){
         setRating(newValue); // Update rating when changed
     };
 
+    
     let submit_ratings = async()=>{
         set_load(1);
         let iip = initial[current_rating_state];

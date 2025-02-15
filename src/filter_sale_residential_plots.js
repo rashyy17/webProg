@@ -27,6 +27,7 @@ function Sale_residential_plots_filter(){
     }
 
     
+    
 
     let [state,set_state] = useState("");
     let [city,set_city] = useState("");
