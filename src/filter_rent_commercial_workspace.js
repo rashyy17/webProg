@@ -400,6 +400,7 @@ function Rent_commercial_workspace_filter(){
                     })
     
                 )}
+                <button onClick={filter_map}>CLICK</button>
 
             </div>
         );

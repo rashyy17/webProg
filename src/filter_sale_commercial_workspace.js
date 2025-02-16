@@ -233,7 +233,7 @@ function Sale_commercial_workspace_filter(){
     }
 
     let filter_map = ()=>{
-        n("/map_rent_residential_plots");
+        n("/map_sale_commercial_workspace");
     }
 
     if(load == 1){
@@ -394,6 +394,8 @@ function Sale_commercial_workspace_filter(){
                     })
     
                 )}
+
+<button onClick={filter_map}>CLICK</button>
 
             </div>
         );

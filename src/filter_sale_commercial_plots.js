@@ -233,7 +233,7 @@ function Sell_commercial_plots_filter(){
     }
 
     let filter_map = ()=>{
-        n("/map_rent_residential_plots");
+        n("/map_sale_commercial_plots");
     }
 
     if(load == 1){
@@ -394,6 +394,7 @@ function Sell_commercial_plots_filter(){
                     })
     
                 )}
+                <button onClick={filter_map}>CLICK</button>
 
             </div>
         );

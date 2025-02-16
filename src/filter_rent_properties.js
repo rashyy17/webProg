@@ -397,6 +397,8 @@ function RPF(){
     
                 )}
 
+<button onClick={filter_map}>CLICK</button>
+
             </div>
         );
     }

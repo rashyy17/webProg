@@ -396,6 +396,7 @@ function Residential_projects_filter(){
                     })
     
                 )}
+                <button onClick={filter_map}>CLICK</button>
 
             </div>
         );

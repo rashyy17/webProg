@@ -396,6 +396,7 @@ function Rent_commercial_plots_filter(){
                     })
     
                 )}
+                <button onClick={filter_map}>CLICK</button>
 
             </div>
         );

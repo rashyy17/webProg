@@ -235,7 +235,7 @@ function Sale_residential_plots_filter(){
     }
 
     let filter_map = ()=>{
-        n("/map_rent_residential_plots");
+        n("/map_sale_residential_plots");
     }
 
     if(load == 1){
@@ -396,6 +396,8 @@ function Sale_residential_plots_filter(){
                     })
     
                 )}
+
+<button onClick={filter_map}>CLICK</button>
 
             </div>
         );

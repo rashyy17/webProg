@@ -199,6 +199,7 @@ function M_sale_residential_plots(){
                     })
     
                 )}
+                
     
             </div>
         );

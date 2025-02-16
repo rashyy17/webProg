@@ -396,6 +396,8 @@ function Rent_residential_plots_filter(){
     
                 )}
 
+<button onClick={filter_map}>CLICK</button>
+
             </div>
         );
     }
