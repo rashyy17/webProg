@@ -31,9 +31,7 @@ const Navbar = () => {
                 <div className="menu-container">
                     <div className="nav-links">
                         <Link to="/aboutus">About us</Link>
-                        <Link to="/agents">Agents</Link>
                         <Link to="/services">Services</Link>
-                        <Link to="/filter">Listings</Link>
                     </div>
                     <div className="search-wrapper">
                         {showSearch && (

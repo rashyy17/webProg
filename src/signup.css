@@ -21,7 +21,6 @@ body {
   /* Main Content Styling */
   .main-content {
     border-radius: 80px;
-    border-bottom-right-radius: 200px;
     margin-top: 50px;
     display: flex;
     justify-content: space-around;

@@ -14,7 +14,7 @@ return (
       {/*Hero*/}
       <main className="hero">
   <div className="hero-content">
-    <h3>Welcome to Aarvasa</h3>
+    <h3>Welcome to Homesi</h3>
     <h1>Manage Your Property</h1>
     <p>
       Your will have everything nearby supermarkets, buses, stations, and
@@ -121,147 +121,6 @@ return (
 {/**/}
 <Infocard />
 
-{/* Preferred Agents */}
-<section className="agents">
-  <h2>Aarvasa Preferred Agents in New Delhi</h2>
-  <div className="agent-list">
-    {/* Agent Card */}
-    <div className="agent-cardp">
-      {/* First Row */}
-      <div className="card-row first-row">
-        <img src="/image4.png" alt="Agent" className="agent-photo" />
-        <div className="agent-headerapp">
-          <h3>Av Preferred</h3>
-          <h4>Vivek Kumar Mishra</h4>
-        </div>
-        <img src="/logo.png" alt="Badge" className="badge-logo" />
-      </div>
-      {/* Second Row */}
-      <div className="card-row second-row">
-        <div className="propertyapp-info">
-          <img src="/image5.png" alt="MV Properties" className="propertyapp-logo" />
-          <div className="propertyapp-details">
-            <p>MV Properties</p>
-            <p>Operating Since</p> 
-            <p>2006</p>
-          </div>
-        </div>
-        <div className="divider"></div>
-        <div className="buyers-info">
-          <p>Buyers Served</p>
-          <p>2500+</p>
-        </div>
-      </div>
-      {/* Third Row */}
-      <div className="card-row third-row">
-        <h3>45</h3>
-        <span>Properties for Sale</span>
-        <h3>3</h3>
-        <span>Properties for Rent</span>
-      </div>
-    </div>
-    <div className="agent-cardp">
-      {/* First Row */}
-      <div className="card-row first-row">
-        <img src="/image4.png" alt="Agent" className="agent-photo" />
-        <div className="agent-headerapp">
-          <h3>Av Preferred</h3>
-          <h4>Vivek Kumar Mishra</h4>
-        </div>
-        <img src="/logo.png" alt="Badge" className="badge-logo" />
-      </div>
-      {/* Second Row */}
-      <div className="card-row second-row">
-        <div className="propertyapp-info">
-          <img src="/image5.png" alt="MV Properties" className="propertyapp-logo" />
-          <div className="propertyapp-details">
-            <p>MV Properties</p>
-            <p>Operating Since 2006</p>
-          </div>
-        </div>
-        <div className="divider"></div>
-        <div className="buyers-info">
-          <p>Buyers Served</p>
-          <p>2500+</p>
-        </div>
-      </div>
-      {/* Third Row */}
-      <div className="card-row third-row">
-        <h3>45</h3>
-        <span>Properties for Sale</span>
-        <h3>3</h3>
-        <span>Properties for Rent</span>
-      </div>
-    </div>
-    <div className="agent-cardp">
-      {/* First Row */}
-      <div className="card-row first-row">
-        <img src="/image4.png" alt="Agent" className="agent-photo" />
-        <div className="agent-headerapp">
-          <h3>Av Preferred</h3>
-          <h4>Vivek Kumar Mishra</h4>
-        </div>
-        <img src="/logo.png" alt="Badge" className="badge-logo" />
-      </div>
-      {/* Second Row */}
-      <div className="card-row second-row">
-        <div className="propertyapp-info">
-          <img src="/image5.png" alt="MV Properties" className="propertyapp-logo" />
-          <div className="propertyapp-details">
-            <p>MV Properties</p>
-            <p>Operating Since 2006</p>
-          </div>
-        </div>
-        <div className="divider"></div>
-        <div className="buyers-info">
-          <p>Buyers Served</p>
-          <p>2500+</p>
-        </div>
-      </div>
-      {/* Third Row */}
-      <div className="card-row third-row">
-        <h3>45</h3>
-        <span>Properties for Sale</span>
-        <h3>3</h3>
-        <span>Properties for Rent</span>
-      </div>
-    </div>
-    <div className="agent-cardp">
-      {/* First Row */}
-      <div className="card-row first-row">
-        <img src="/image4.png" alt="Agent" className="agent-photo" />
-        <div className="agent-headerapp">
-          <h3>Av Preferred</h3>
-          <h4>Vivek Kumar Mishra</h4>
-        </div>
-        <img src="/logo.png" alt="Badge" className="badge-logo" />
-      </div>
-      {/* Second Row */}
-      <div className="card-row second-row">
-        <div className="propertyapp-info">
-          <img src="/image5.png" alt="MV Properties" className="propertyapp-logo" />
-          <div className="propertyapp-details">
-            <p>MV Properties</p>
-            <p>Operating Since 2006</p>
-          </div>
-        </div>
-        <div className="divider"></div>
-        <div className="buyers-info">
-          <p>Buyers Served</p>
-          <p>2500+</p>
-        </div>
-      </div>
-      {/* Third Row */}
-      <div className="card-row third-row">
-        <h3>45</h3>
-        <span>Properties for Sale</span>
-        <h3>3</h3>
-        <span>Properties for Rent</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 
       
 
@@ -275,7 +134,7 @@ return (
           
           <p>Solving the</p>
           <div className="secnd-line">Unsolvable problem</div>
-          <p className="third-line">with <span className="highlight">Aarvasa</span></p>
+          <p className="third-line">with <span className="highlight">Homesi</span></p>
           <p className="bold">Now Property Available for <strong>BACHELOR'S</strong> 
           <div className="itali">also...</div>
           </p>
@@ -284,150 +143,30 @@ return (
         </div>
       </section>
 
-      {/* Tools and Advice */}
-      <ToolsAdvice />
 
-      {/* Real Estate Guide Section */}
-      <Realestate />
 
-      <div class="post-propertyapp-container">
-    <div class="left-side">
-        <h3>Post your property for <div className="itali">Free...</div></h3>
-        <p>List it on Aarvasa and get Genuine leads</p>
-    </div>
-    <div class="right-side">
-        <button class="post-propertyapp-btn" onClick={()=>{
-          n('/sell');
-        }}>
-            Post Property
-            <button class="free-btn">Free</button>
-        </button>
-    </div>
-</div>
-
-      {/* Our Team */}
-      <div class="appour-team">
-      <h2>Our Team</h2>
-      <div class="appteam-members">
-          <div class="appteam-member">
-              <div class="appimage-container">
-                  <img src="/uday.jpg" alt="Team Member Image" />
-                  <div class="social-media-container">
-                  <a href="https://www.linkedin.com/in/udayprakashsahu/" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  <a href="http://x.com/udaysahu_" target="_blank" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="http://instagram.com/uday.sahu_10" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-          </div>
-              </div>
-              <div class="appinfo-container">
-                  <p class="appname">Uday Prakash Sahu</p>
-                  <p class="appdesignation">Founder & CEO</p>
-              </div>
-          </div>
-          <div class="appteam-member">
-              <div class="appimage-container">
-                  <img src="/ansh2.jpg" alt="Team Member Image" />
-                  <div class="social-media-container">
-                  <a href="https://www.linkedin.com/in/ansh-dubey-526325273/" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  <a href="https://x.com/anshaarush?s=21" target="_blank" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="https://www.instagram.com/ansh.dubey/?igsh=MTR0ZGxxaHRkcHZsZw%3D%3D&utm_source=qr" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-          </div>
-              </div>
-              <div class="appinfo-container">
-                  <p class="appname">Ansh Dubey</p>
-                  <p class="appdesignation">Co-Founder & COO</p>
-              </div>
-          </div>
-          <div class="appteam-member">
-              <div class="appimage-container">
-                  <img src="/lakshay.png" alt="Team Member Image" />
-                  <div class="social-media-container">
-                  <a href="https://www.linkedin.com/in/lakshya-phoolwani-44b807277?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  <a href="" target="_blank" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="https://www.instagram.com/lakshya._.47?igsh=ZDYybjRsM2VtaXJ1" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-          </div>
-              </div>
-              <div class="appinfo-container">
-                  <p class="appname">Lakshya Phoolwani</p>
-                  <p class="appdesignation">Chief Financial Officer (CFO)</p>
-              </div>
-          </div>
-          <div class="appteam-member">
-              <div class="appimage-container">
-                  <img src="/archit.jpg" alt="Team Member Image" />
-                  <div class="social-media-container">
-                  <a href="https://www.linkedin.com/in/archit-agarwal03/" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  <a href="https://x.com/Bare14876127?s=09" target="_blank" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="https://www.instagram.com/archit_agarwal1511?igsh=MXNkcG9iM2k0bmZuaw==" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-          </div>
-              </div>
-              <div class="appinfo-container">
-                  <p class="appname">Archit Agrawal</p>
-                  <p class="appdesignation">Chief Marketing Officer (CMO)</p>
-              </div>
-          </div>
-          <div class="appteam-member">
-              <div class="appimage-container">
-                  <img src="/anirudh.jpg" alt="Team Member Image" />
-                  <div class="social-media-container">
-                  <a href="https://www.linkedin.com/in/anirudh-saxena-481ba2245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                  <a href="" target="_blank" class="social-icon">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                  <a href="" target="_blank" class="social-icon">
-                    <i class="fab fa-instagram"></i>
-                  </a>
-          </div>
-              </div>
-              <div class="appinfo-container">
-                  <p class="appname">Anirudh Saxena</p>
-                  <p class="appdesignation">Chief Technology Officer (CTO)</p>
-              </div>
-          </div>
-          </div>
-        </div>
-
+    
+      
        {/* Map Section */}
 <div className="map-section">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14009.091847020048!2d77.2090219242628!3d28.613939844524303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2c50c2f2c59%3A0x116a9a0dd23cd4e0!2sNew%20Delhi%2C%20Delhi%2C%20India!5e0!3m2!1sen!2sin!4v1603104563980!5m2!1sen!2sin"
-    width="100%"
-    height="400"
-    style={{
-      border: "0",
-      filter: "invert(90%)",
-      borderRadius: "10px",
-    }}
-    allowFullScreen=""
-    loading="lazy"
-    title="Google Map - New Delhi"
-  ></iframe>
+<iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.0409982844603!2d79.15335867450268!3d12.969228414931406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bad479f0ccbe067%3A0xfef222e5f36ecdeb!2sVellore%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1743083783340!5m2!1sen!2sin"
+      width="100%"
+      height="450"
+      style={{
+        border: "0",
+        filter: "invert(90%)",
+        borderRadius: "10px",
+      }}
+      allowFullScreen=""
+      loading="lazy"
+      referrerPolicy="Google Map - Vellore"
+    />
+
 </div>
+
+
+
 
 
 
@@ -464,46 +203,19 @@ return (
       </div>
     </div>
     <p>Building Dreams , Securing Futures</p>
-    <div className="appsocial-icons">
-      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-        <i className="fab fa-linkedin"></i>
-      </a>
-      <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-        <i className="fab fa-twitter"></i>
-      </a>
-      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-        <i className="fab fa-instagram"></i>
-      </a>
-      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-        <i className="fab fa-facebook"></i>
-      </a>
-    </div>
+    
   </div>
   <div className="footerapp-section">
     <h3 className="underlinedapp">Quick Links</h3>
     <ul>
       <li>Home</li>
       <li>About Us</li>
-      <li>Services</li>
-      <li>Our Team</li>
     </ul>
   </div>
   <div className="footerapp-section">
     <h3 className="underlinedapp">Privacy & Terms</h3>
-    <ul>
-      <li>Terms and Conditions</li>
-      <li>Privacy Policy</li>
-      <li>Refund and Cancellation Policy</li>
-      <li>Security</li>
-    </ul>
   </div>
-  <div className="footerapp-section">
-    <h3 className="underlinedapp">Contact Us</h3>
-    <p>Technology Tower, VIT Vellore</p>
-    <p>Room No. 004, Ground Floor</p>
-    <p>Vellore, Tamil Nadu, 632014</p>
-    <p>Email: theaarvasa@gmail.com</p>
-  </div>
+  
 
 </footer>
 
