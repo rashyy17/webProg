@@ -1,7 +1,5 @@
 import React from "react";
 import "./App.css";
-import Realestate from "./realestate";
-import ToolsAdvice from "./toolsadvice";
 import Infocard from "./infocard";
 import SearchBar from "./SearchBar";
 import { useNavigate } from "react-router-dom";
@@ -95,25 +93,25 @@ return (
       <img src="/image.png" alt="Owner Properties" />
       <h3>1022</h3>
       <h3>Owner Properties</h3>
-      <h3 className="explore-link"><a href="/owner-properties">Explore →</a></h3>
+      <h3 className="explore-link"><a href="#">Explore →</a></h3>
     </div>
     <div className="stat-item">
       <img src="/image(3).png" alt="Projects" />
       <h3>182</h3>
       <h3>Projects</h3>
-      <h3 className="explore-link"><a href="/projects">Explore →</a></h3>
+      <h3 className="explore-link"><a href="#">Explore →</a></h3>
     </div>
     <div className="stat-item">
       <img src="/image(2).png" alt="Ready to Move-In" />
       <h3>2364</h3>
       <h3>Ready to move-in</h3>
-      <h3 className="explore-link"><a href="/ready-to-move-in">Explore →</a></h3>
+      <h3 className="explore-link"><a href="#">Explore →</a></h3>
     </div>
     <div className="stat-item">
       <img src="/image(1).png" alt="Budget Homes" />
       <h3>3222</h3>
       <h3>Budget Homes</h3>
-      <h3 className="explore-link"><a href="/budget-homes">Explore →</a></h3>
+      <h3 className="explore-link"><a href="#">Explore →</a></h3>
     </div>
   </div>
 </section>

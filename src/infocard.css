@@ -1,7 +1,7 @@
 .infocontainer {
   display: flex;
   padding: 20px;
-  background-color: #DFD7BF; /* Light beige background */
+  background-color: #FCE695; /* Light beige background */
   border-radius: 1.5rem;
   gap: 20px; /* Gap between left and right sections */
   height: auto; /* Flexible height to fit content */

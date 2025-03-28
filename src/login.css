@@ -96,7 +96,7 @@ body {
     display: flex;
     align-items: center;
     background-color: #F5F0E1; /* Oval background color */
-     /* Rounded edges for the oval */
+    border-radius: 50px; /* Rounded edges for the oval */
     padding: 5px 20px; /* Padding to create space inside the oval */
   }
   

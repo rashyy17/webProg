@@ -40,7 +40,7 @@
 }
 
 .about-text {
-  background-color: #D6C1AA; /* Matching background color */
+  background-color: #FCE695; /* Matching background color */
   border-radius: 30px; /* Creates the oval shape */
   padding: 20px; /* Add padding for text inside the oval */
   color: #5A4636; /* Text color matches the uploaded design */
@@ -83,7 +83,7 @@
 }
 
 .mission, .vision {
-  background-color: #C1A57B;
+  background-color: #FCE695;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -104,7 +104,7 @@
 }
 
 .center-card {
-  background-color: #C1A57B;
+  background-color: #FCE695;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -481,7 +481,7 @@
   flex-direction: row;
   align-items: center;
   /* padding: 2rem; */
-  background-color: #C9B391;
+  background-color: #FCE695;
   border-radius: 30px;
   width: 85%;
   height: 30%;
