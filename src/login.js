@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import "./login.css";
 import { Link } from "react-router-dom";
@@ -7,14 +7,44 @@ const Login = ({
   onFacebookLogin, 
   onGoogleLogin, 
   onAppleLogin, 
-  onEmailLogin 
+  onEmailLogin,
+  autoFocus = false,
+  validateOnInit = false
 }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  // Effect to handle auto-focus on email input
+  useEffect(() => {
+    if (autoFocus) {
+      const emailInput = document.getElementById('email-input');
+      if (emailInput) {
+        emailInput.focus();
+      }
+    }
+  }, [autoFocus]);
+
+  // Effect to validate form on initial render if specified
+  useEffect(() => {
+    if (validateOnInit) {
+      validateForm();
+    }
+  }, [email, password, validateOnInit]);
+
+  // Form validation logic
+  const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(email);
+    const isValidPassword = password.length >= 6;
+    setIsFormValid(isValidEmail && isValidPassword);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (onEmailLogin) {
+    validateForm();
+    
+    if (isFormValid && onEmailLogin) {
       onEmailLogin(email, password);
     }
   };
@@ -66,20 +96,38 @@ const Login = ({
             <p>or login with Email</p>
             <form onSubmit={handleSubmit}>
               <input 
+                id="email-input"
                 type="email" 
                 placeholder="Your Email" 
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  validateForm();
+                }}
                 required 
               />
               <input 
                 type="password" 
                 placeholder="Password" 
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  validateForm();
+                }}
                 required 
               />
-              <button type="submit" className="submit-btn">Log In</button>
+              <button 
+                type="submit" 
+                className="submit-btn"
+                disabled={!isFormValid}
+              >
+                Log In
+              </button>
+              {!isFormValid && (
+                <p className="error-message">
+                  Please enter a valid email and password
+                </p>
+              )}
             </form>
           </div>
         </div>
@@ -119,9 +167,19 @@ Login.propTypes = {
   onFacebookLogin: PropTypes.func,
   onGoogleLogin: PropTypes.func,
   onAppleLogin: PropTypes.func,
-  onEmailLogin: PropTypes.func
+  onEmailLogin: PropTypes.func,
+  autoFocus: PropTypes.bool,
+  validateOnInit: PropTypes.bool
 };
 
-
+// Optional default props
+Login.defaultProps = {
+  onFacebookLogin: () => {},
+  onGoogleLogin: () => {},
+  onAppleLogin: () => {},
+  onEmailLogin: () => {},
+  autoFocus: false,
+  validateOnInit: false
+};
 
 export default Login;
